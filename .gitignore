@@ -1,0 +1,8 @@
+.idea
+out
+.gitignore
+*.properties
+*.iml
+*.md
+*.png
+

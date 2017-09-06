@@ -1,0 +1,46 @@
+package task36.task3612;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.TreeSet;
+
+/**
+ * Created by ukr-sustavov on 18.08.2017.
+ */
+public class Solution {
+    private Set<Date> dates;
+    private Date lastDate;
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        solution.initializeDates();
+        solution.updateLastDate(3_600_000L);
+        System.out.println(solution.isLastDateContainsInDates());
+    }
+
+    public boolean isLastDateContainsInDates() {
+        return dates.contains(lastDate);
+    }
+
+    private void initializeDates() {
+        dates = new HashSet<>();
+        lastDate = new Date(9999999L);
+        dates.add(lastDate);
+        dates.add(new Date(2222222L));
+        dates.add(new Date(3333333L));
+        dates.add(new Date(4444444L));
+        dates.add(new Date(5555555L));
+    }
+
+    protected void updateLastDate(long delta) {
+//        lastDate.setTime(lastDate.getTime() + delta);
+//        lastDate = new Date(lastDate.getTime() + delta);
+//        dates.add(lastDate);
+
+        dates.remove(lastDate);
+        lastDate.setTime(lastDate.getTime() + delta);
+        dates.add(lastDate);
+
+    }
+}
